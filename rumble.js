@@ -2,21 +2,22 @@ const question = document.querySelector("#question");
 const choices = Array.from(document.querySelectorAll(".choice-text"));
 const progressText = document.querySelector("#progress-text");
 const scoreText = document.querySelector("#score");
+const progressBarFull =document.querySelector("#progressBarFull");
 
 let currentQuestion = {};
-let acceptedAnswers = true;
+let acceptingAnswers = true;
 let  score = 0;
-let counter = 0;
-let questionsLeft = [];
+let questionCounter = 0;
+let availableQuestions = [];
 
 let questions = [
     {
-        question: "What is the answer",
+        question: "What is 2+2",
         choice1: "2",
-        choice2: "3",
-        choice3: "4",
-        choice4: "5",
-        answer: 1, 
+        choice2: "4",
+        choice3: "21",
+        choice4: "17",
+        answer: 2, 
     },
     {
         question: "What is the answer",
@@ -41,94 +42,40 @@ let questions = [
         choice3: "4",
         choice4: "5",
         answer: 1, 
-    },
-    {
-        question: "What is the answer",
-        choice1: "2",
-        choice2: "3",
-        choice3: "4",
-        choice4: "5",
-        answer: 1, 
-    },
-    {
-        question: "What is the answer",
-        choice1: "2",
-        choice2: "3",
-        choice3: "4",
-        choice4: "5",
-        answer: 1, 
-    },
-    {
-        question: "What is the answer",
-        choice1: "2",
-        choice2: "3",
-        choice3: "4",
-        choice4: "5",
-        answer: 1, 
-    },
-    {
-        question: "What is the answer",
-        choice1: "2",
-        choice2: "3",
-        choice3: "4",
-        choice4: "5",
-        answer: 1, 
-    },
-    {
-        question: "What is the answer",
-        choice1: "2",
-        choice2: "3",
-        choice3: "4",
-        choice4: "5",
-        answer: 1, 
-    },
-    {
-        question: "What is the answer",
-        choice1: "2",
-        choice2: "3",
-        choice3: "4",
-        choice4: "5",
-        answer: 1, 
-    },
-    {
-        question: "What is the answer",
-        choice1: "2",
-        choice2: "3",
-        choice3: "4",
-        choice4: "5",
-        answer: 1, 
-    } 
+    }
 ]
 
 const SCORE_POINTS = 100;
-const MAX_QUESTION = 11;
+const MAX_QUESTION = 4;
 
 startGame =() => {
     questionCounter = 0;
     score = 0;
-    questionsLeft = [...question]
+    // spread operator
+    availableQuestions = [...question]
     getNewQuestions()
 
 }
 
 getNewQuestions = () =>  {
-    if(avalibleQuestions.length === 0 || counter > MAX_QUESTIONS){
-        localStorage.setItem("mostRecaentScore",score)
+    if(availableQuestions.length === 0 || questionCounter > MAX_QUESTIONS){
+        localStorage.setItem("mostRecentScore",score)
 
         return window.location.assign("/end.html")
     }
-    counter++
+    questionCounter++
     progressText.innerText = `Question ${questionCounter}  of ${MAX_QUESTION}`
-
-    const questionIndex = Math.floor(Math.random()* questionsLeft.length)
-    currentQuestion = avalibleQuestions[questionIndex]
+    progressBarFull.getElementsByClassName.width=`${(questionCounter/MAX_QUESTION)*100}100%
+ `
+    const questionIndex = Math.floor(Math.random()* availableQuestions.length)
+    currentQuestion = availableQuestions[questionsIndex]
     question.innerText = currentQuestion.question
 
     choices.forEach(choice =>{
         const number = choice.dataset["number"]
-        choice.innerHTML = currentQuestion["choice"+ number]
+        choice.innerText = currentQuestion["choice"+ number]
     })
-    avalibleQuestions.splice(questionIndex, 1)
+    availableQuestions.splice(questionIndex, 1)
 
     acceptingAnswers = true;
 }
@@ -149,11 +96,18 @@ choices.forEach(choices => {
         }
 
         selectedChoice.parentElement.classList.add(classToApply)
-        getNewQuestion()
-    }, 1000)
+
+        setTimeout(()=> {
+            selectedChoice.parentElement.classList.remove(classToApply)
+            getNewQuestions()
+
+        },1000)
+    })
 })
 
 incrementScore = num => {
     score +=num
-    scoreText.innerText 
+    scoreText.innerText =  score
 }
+
+startGame()
