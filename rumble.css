@@ -1,0 +1,44 @@
+body {
+    color: green
+}
+
+.choice-container {
+    display: flex;
+    margin-bottom: auto;
+    width: 100%;
+    border-radius: 5px;
+    /* background: blue; */
+    font-size: 24px;
+    min-width: none;
+}
+
+.choice-prefix {
+    color: white
+}
+
+.choice-text {
+    width: 100%;
+}
+
+.correct {
+    background: green 0%, green 100%;
+}
+
+.incorrect {
+    background: red 0%, red 100%;
+}
+
+.hud-prefix {
+    text-align:center;
+}
+
+.hud-main-text{
+    text-align: center;
+}
+
+/* Progress bar option */
+@media  screen and (max-width: 750px,){
+    .choice-container{
+        min-width: 340px;
+    }
+}

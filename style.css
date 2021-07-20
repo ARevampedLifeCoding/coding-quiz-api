@@ -1,0 +1,104 @@
+:root{
+    background-color: rgb(29,26,26);
+}
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-size: 62.5%;
+    font-family: "lato", cursive;
+}
+
+h1 {
+    font-size: 5.4rem;
+    color: white;
+    margin-bottom: 5rem;
+}
+
+h2 {
+    font-size: 4.2rem;
+    margin-bottom: 4rem;
+}
+
+ .container {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 80rem;
+    margin:0 auto;
+    padding: 2rem;
+}
+
+.flex-colum {
+    display: flex;
+    flex-direction: column;
+}
+
+.flex-center {
+    justify-content: center;
+    align-items: center;
+}
+ 
+.justify-center {
+    justify-content: center;
+}
+
+.text-center{
+    text-align: center;
+}
+
+.hidden {
+    display: none;
+}
+
+
+.btn {
+    font-size: 2.4rem;
+    padding: 2rem 0;
+    width: 30rem;
+    text-align: center;
+    margin-bottom: 1rem;
+    text-decoration: none;
+    color:  rgb(28,26,26);
+    background: linear-gradient(90deg, blue)0%,rgb(0,102,255),100%;
+    border-radius: 4px ;
+}
+
+.btn:hover  {
+    cursor: pointer;
+    box-shadow: 0 0.4rem 0 blue;
+    transition: transform  150ms;
+    transform: scale(1.03);
+}
+
+.btn[disabled]:hover {
+    cursor: not-allowed;
+    box-shadow: none;
+    transform: none;
+}
+
+#scores-btn {
+background: linear-gradient(90deg, yellow) 0% yellow 100%;
+}
+
+#scores-btn {
+    box-shadow: 0 0.4rem 0 black;
+}
+
+#score-btn {
+ background: yellow;   
+}
+/* GIVEN I am taking a code quiz
+WHEN I click the start button
+THEN a timer starts and I am presented with a question
+WHEN I answer a question
+THEN I am presented with another question
+WHEN I answer a question incorrectly
+THEN time is subtracted from the clock
+WHEN all questions are answered or the timer reaches 0
+THEN the game is over
+WHEN the game is over
+THEN I can save my initials and my score */
