@@ -1,18 +1,18 @@
 // create a timer that starts when quiz begins 
 
 // present a question after quiz starts 
-function countDown() {
-    var timeLeft =5;
-    var timeInterval = setInterval(function () {
-        timeLeft--;
-        timeInterval.textContent = timeLeft + "Time Remaining";
-        if (timeLeft===0){
-            clearInterval(timeInterval)
-            displayMessage()
-        }
-    },1000);
-}
-countDown();
+// function countDown() {
+//     var timeLeft =5;
+//     var timeInterval = setInterval(function () {
+//         timeLeft--;
+//         timeInterval.textContent = timeLeft + "Time Remaining";
+//         if (timeLeft===0){
+//             clearInterval(timeInterval)
+//             displayMessage()
+//         }
+//     },1000);
+// }
+// countDown();
 
 
 
