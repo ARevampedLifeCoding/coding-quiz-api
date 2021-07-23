@@ -4,6 +4,55 @@ const progressText = document.querySelector('#progressText');
 const scoreText = document.querySelector('#score');
 const progressBarFull = document.querySelector('#progressBarFull');
 
+// Timer
+// document.addEventListener('DOMContentLoaded', () => {
+//     const timeLeftDisplay = document.querySelector('#start-button')
+//     timeLeft  = 10 
+
+//     function countDown() {
+//         setInterval(function(){
+//             if(timeLeft <=  0 ) {
+//                 clearInterbal(timeLeft = 0)
+//             }
+//             timeLeftDisplay.innerHTML = timeLeft
+//             timeLeft -=1
+//         },1000)
+//     }
+//     startBtn.addEventListener('click')
+// })
+var timeEl = document.querySelector(".time");
+
+var mainEl = document.getElementById("main");
+
+var secondsLeft = 40;
+
+function setTime() {
+  var timerInterval = setInterval(function() {
+    secondsLeft--;
+    timeEl.textContent = secondsLeft + " till end of quiz!";
+
+    if(secondsLeft === 0) {
+      clearInterval(timerInterval);
+      sendMessage();
+    }
+
+  }, 1000);
+}
+
+function sendMessage() {
+    
+}
+// function sendMessage() {
+//   timeEl.textContent = " ";
+//   var imgEl = document.createElement("img");
+//   imgEl.setAttribute("src=/end.html");
+//   mainEl.appendChild(imgEl);
+
+
+
+setTime();
+
+
 let currentQuestion = {}
 let acceptingAnswers = true
 let score =  0 
@@ -12,35 +61,35 @@ let availableQuestions = []
 
 let questions   = [
     {
-        question: 'What is 2+2?',
-        choice1: '2',
-        choice2: '3',
-        choice3: '4',
-        choice4: '5',
+        question: 'What does JS stand for?',
+        choice1: 'JavaScorpio',
+        choice2: 'JavaSam',
+        choice3: 'JavaScript',
+        choice4: 'JavaSwine',
         answer: 3,
     },
     {
-        question: 'What is 2+3?',
-        choice1: '2',
-        choice2: '3',
-        choice3: '4',
-        choice4: '5',
+        question: 'What is JavaScript used for?',
+        choice1: 'Making the page  pretty',
+        choice2: 'Hyper Text MarkUp',
+        choice3: 'Crashes The Webpage',
+        choice4: 'Adds  functionality',
         answer: 4,
     },
     {
-        question: 'What is 2+1?',
-        choice1: '2',
-        choice2: '3',
-        choice3: '4',
-        choice4: '5',
+        question: 'What kind of language is JavaScript?',
+        choice1: 'OPP scripting language',
+        choice2: 'OOP scripting language',
+        choice3: 'PPO scripting language',
+        choice4: 'OPO scripting language',
         answer: 2,
     },
     {
-        question: 'What is 2+0?',
-        choice1: '2',
-        choice2: '3',
-        choice3: '4',
-        choice4: '5',
+        question: 'Is JavaScript easy?',
+        choice1: 'Maybe',
+        choice2: 'Yes',
+        choice3: 'No',
+        choice4: 'What is JavaScript',
         answer: 1,
     }
     
